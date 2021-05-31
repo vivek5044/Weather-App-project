@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    {{>headerlinks}}
+
+    <title>Weather App</title>
+</head>
+
+<body>
+    <div class="container-fluid main_menu">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#"><i class="fa fa-snowflake-o"></i><i
+                                class="far fa-snowflake"></i> Vivek's weather forecast <i class="far fa-snowflake"></i>
+                            <i class="fa fa-snowflake-o"></i></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/weather">Weather</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/about">About</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- main header -->
+
+    <div class="container-fluid main_header">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+                <div class="main-content">
+                    <form class="temp_form">
+                        <input type="text" id="cityName" placeholder="Enter your city name" autocomplete="off">
+                        <input type="submit" value="search" id="submitBtn">
+                    </form>
+                    {{!-- <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form> --}}
+                </div>
+                <div class="tempInformation">
+                    <div class="top_layer">
+                        <p id="day">Sunday</p>
+                        <p id="today_date"><span id="date">01</span> MAY</p>
+                    </div>
+                    <div class="main_layer">
+                        <p id="city_name">Get Output here...</p>
+                        {{!-- data-hide was also one of the class  --}}
+                        <div class="middle_layer data_hide">               
+                            <p id="temp"><span id="temp_real_val">0</span><sup>o</sup>C</p>
+                            <p id="temp_status"><i class="fa fa-cloud" aria-hidden="true"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer code -->
+    {{>footer}}
+
+    <script src="js/main.js"></script>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+
+    <script>
+        
+        const getCurrentDay = () => {
+            let weekDay = new Array(7);
+            weekDay[0] = "Sun";
+            weekDay[1] = "Mon";
+            weekDay[2] = "Tue";
+            weekDay[3] = "Wed";
+            weekDay[4] = "Thu";
+            weekDay[5] = "Fri";
+            weekDay[6] = "Sat";
+
+            let currentTime = new Date();
+            days = weekDay[currentTime.getDay()];
+
+            let day = document.getElementById('day')
+            day.innerText = days;
+        };
+
+        getCurrentDay();
+
+        const getCurrentMonth = () => {
+            let month = new Array(12);
+            month[0] =  "Jan";
+            month[1] =  "Feb";
+            month[2] = "Mar";
+            month[3] = "Apr";
+            month[4] = "May";
+            month[5] = "Jun";
+            month[6] = "Jul";
+            month[7] = "Aug";
+            month[8] = "Sept";
+            month[9] = "Oct";
+            month[10] = "Nov";
+            month[11] = "Dec";
+
+            let currentMonth = new Date();
+            mont = month[currentMonth.getMonth()];
+
+            let months = document.getElementById('today_date')
+            months.innerText = mont;
+        }
+
+        getCurrentMonth();
+
+    </script>
+</body>
+
+</html>
