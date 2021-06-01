@@ -4,7 +4,7 @@ const hbs = require('hbs');
 const path = require('path');
 const app = express();
 
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 //public static path
 const static_path = path.join(__dirname, "../public");
